@@ -87,8 +87,8 @@ matrix:
           project:
             name: "Bo-Yuan-Huang/ILAng"
             description: "A modeling and verification platform for SoCs using ILA"
-          build_command_prepend: "mkdir -p build; cd build; cmake .."
-          build_command: "make"
+          build_command_prepend: mkdir -p build; cd build; cmake ..
+          build_command: make
           branch_pattern: coverity_scan
 
 addons:
