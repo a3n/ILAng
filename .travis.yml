@@ -90,6 +90,15 @@ matrix:
           build_command_prepend: mkdir -p build; cd build; cmake ..
           build_command: make
           branch_pattern: coverity_scan
+        apt:
+          update: true
+          packages:
+            - lcov
+            - flex
+            - bison
+            - libboost-all-dev
+            - z3
+            - libz3-dev
 
 addons:
   apt:
