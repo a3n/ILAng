@@ -77,19 +77,19 @@ matrix:
         - if [ $BISON_CACHED == "0" ] ; then make ; fi
         - sudo make install
 
-      - name: "coverity"
-        os: linux
-        dist: xenial
-        compiler: gcc
-        before_install: echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-        addons:
-          coverity_scan:
-            project:
-              name: "Bo-Yuan-Huang/ILAng"
-              description: "A modeling and verification platform for SoCs using ILA"
-            build_command_prepend: "mkdir -p build; cd build; cmake .."
-            build_command: "make"
-            branch_pattern: coverity_scan
+    - name: "coverity"
+      os: linux
+      dist: xenial
+      compiler: gcc
+      before_install: echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+      addons:
+        coverity_scan:
+          project:
+            name: "Bo-Yuan-Huang/ILAng"
+            description: "A modeling and verification platform for SoCs using ILA"
+          build_command_prepend: "mkdir -p build; cd build; cmake .."
+          build_command: "make"
+          branch_pattern: coverity_scan
 
 addons:
   apt:
